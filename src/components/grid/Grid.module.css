@@ -5,4 +5,6 @@
 .gridHeader {
   font-size: 13px;
   font-weight: 500;
+  color: black;
+  padding: 20px 10px;
 }

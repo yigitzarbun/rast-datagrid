@@ -35,6 +35,13 @@ function Grid() {
     return <p className={styles.gridHeader}>{data.column.caption}</p>;
   };
 
+  const renderCell = (data: any) => {
+    return (
+      <div className={styles.gridCell} style={{ padding: "20px" }}>
+        {data.value}
+      </div>
+    );
+  };
   return (
     <div className="mt-[11px]">
       <DataGrid dataSource={dataSource} id="dataGrid" className={styles.grid}>
@@ -43,18 +50,21 @@ function Grid() {
           caption="Sosyal Medya Linki"
           headerCellRender={renderTitleHeader}
           width={340}
+          cellRender={renderCell}
         />
         <Column
           dataField="name"
           caption="Sosyal Medya Adı"
           headerCellRender={renderTitleHeader}
           width={300}
+          cellRender={renderCell}
         />
         <Column
           dataField="description"
           caption="Açıklama"
           headerCellRender={renderTitleHeader}
           width={590}
+          cellRender={renderCell}
         />
       </DataGrid>
     </div>
