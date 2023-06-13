@@ -1,10 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import dataSource from "../../data/data.json";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 
 interface Account {
-  accountLink: string;
-  accountName: string;
-  accountDescription: string;
+  link: string;
+  name: string;
+  description: string;
 }
 
 interface AccountsState {
@@ -12,15 +13,17 @@ interface AccountsState {
 }
 
 const initialState: AccountsState = {
-  accounts: [],
+  accounts: dataSource,
 };
 
 export const accountsSlice = createSlice({
   name: "accountsSlice",
   initialState,
   reducers: {
-    //getAccounts: (state) =>  {get accounts};
-    //addAccount: (state) => {add new account}
+    getAccounts: (state) => state,
+    addAccount: (state, action: PayloadAction<Account>) => {
+      state.accounts.push(action.payload);
+    },
   },
 });
 

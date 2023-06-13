@@ -1,5 +1,4 @@
 import paths from "../../routing/Paths";
-import { Colors } from "../../common/Colors";
 
 function Header() {
   return (

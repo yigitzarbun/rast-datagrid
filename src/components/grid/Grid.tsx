@@ -1,8 +1,16 @@
 import styles from "./Grid.module.css";
-import dataSource from "../../data/data.json";
+import { getAccounts } from "../../store/slices/accountsSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 
+import { useEffect, useState } from "react";
 function Grid({ search }: { search: string }) {
-  let filteredData = dataSource.filter((account) => {
+  const dispatch = useAppDispatch();
+  const { accounts } = useAppSelector((state) => state.accounts);
+  const [sort, setSort] = useState("");
+  const handleSort = (v: string) => {
+    setSort(v);
+  };
+  let filteredData = accounts.filter((account) => {
     if (search === "") {
       return account;
     } else if (
@@ -13,19 +21,79 @@ function Grid({ search }: { search: string }) {
       return account;
     }
   });
+  let sortedData = [...filteredData];
+
+  if (sort === "link") {
+    sortedData.sort((a, b) => a.link.localeCompare(b.link));
+  } else if (sort === "name") {
+    sortedData.sort((a, b) => a.name.localeCompare(b.name));
+  } else if (sort === "description") {
+    sortedData.sort((a, b) => a.description.localeCompare(b.description));
+  }
+  useEffect(() => {
+    dispatch(getAccounts());
+  }, []);
   return (
     <div className="mt-[11px]">
-      {filteredData.length > 0 ? (
+      {sortedData.length > 0 ? (
         <table className={styles.grid}>
           <thead>
             <tr>
-              <th className={styles.headingLink}>Sosyal Medya Linki</th>
-              <th className={styles.headingName}>Sosyal Medya Adı</th>
-              <th className={styles.headingDescription}>Açıklama</th>
+              <th
+                className={styles.headingLink}
+                onClick={() => handleSort("link")}
+              >
+                <div className={styles.headingContent}>
+                  <span>Sosyal Medya Linki</span>
+                  <img
+                    src={
+                      sort === "link"
+                        ? "/sort/active_arrow.png"
+                        : "/sort/inactive_arrow.png"
+                    }
+                    alt="sort"
+                    className="w-[9.97px] h-[19px]"
+                  />
+                </div>
+              </th>
+              <th
+                className={styles.headingName}
+                onClick={() => handleSort("name")}
+              >
+                <div className={styles.headingContent}>
+                  <span>Sosyal Medya Adı</span>
+                  <img
+                    src={
+                      sort === "name"
+                        ? "/sort/active_arrow.png"
+                        : "/sort/inactive_arrow.png"
+                    }
+                    alt="sort"
+                    className="w-[9.97px] h-[19px]"
+                  />
+                </div>
+              </th>
+              <th
+                className={styles.headingDescription}
+                onClick={() => handleSort("description")}
+              >
+                <div className={styles.headingContent}>
+                  <span>Açıklama</span>
+                  <img
+                    src={
+                      sort === "description"
+                        ? "/sort/active_arrow.png"
+                        : "/sort/inactive_arrow.png"
+                    }
+                    alt="sort"
+                    className="w-[9.97px] h-[19px]"
+                  />
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody>
-            {filteredData.map((account, index) => (
+            {sortedData.map((account, index) => (
               <tr
                 key={account.link}
                 className={index % 2 === 0 ? styles.whiteRow : styles.blueRow}
@@ -45,51 +113,3 @@ function Grid({ search }: { search: string }) {
 }
 
 export default Grid;
-
-/*
-*** imports
-
-import DataGrid, { Column } from "devextreme-react/data-grid";
-import "devextreme/dist/css/dx.common.css";
-import "devextreme/dist/css/dx.light.css";
-
-*** column & cell style generators
-
-const renderTitleHeader = (data: any) => {
-    return <p className={styles.gridHeader}>{data.column.caption}</p>;
-  };
-
-  const renderCell = (data: any) => {
-    return (
-      <div className={styles.gridCell} style={{ padding: "20px" }}>
-        {data.value}
-      </div>
-    );
-  };
-
-  *** jsx
- 
-<DataGrid dataSource={dataSource} id="dataGrid" className={styles.grid}>
-        <Column
-          dataField="link"
-          caption="Sosyal Medya Linki"
-          headerCellRender={renderTitleHeader}
-          width={340}
-          cellRender={renderCell}
-        />
-        <Column
-          dataField="name"
-          caption="Sosyal Medya Adı"
-          headerCellRender={renderTitleHeader}
-          width={300}
-          cellRender={renderCell}
-        />
-        <Column
-          dataField="description"
-          caption="Açıklama"
-          headerCellRender={renderTitleHeader}
-          width={590}
-          cellRender={renderCell}
-        />
-      </DataGrid>
-      */
