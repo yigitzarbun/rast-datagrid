@@ -30,12 +30,32 @@ function Grid() {
         "Software Development Agency Rast Mobile Information Technology Ltd.",
     },
   ];
+
+  const renderTitleHeader = (data: any) => {
+    return <p className={styles.gridHeader}>{data.column.caption}</p>;
+  };
+
   return (
     <div className="mt-[11px]">
-      <DataGrid dataSource={dataSource} className={styles.grid}>
-        <Column dataField="link" caption="Sosyal Medya Linki" />
-        <Column dataField="name" caption="Sosyal Medya Adı" />
-        <Column dataField="description" caption="Açıklama" />
+      <DataGrid dataSource={dataSource} id="dataGrid" className={styles.grid}>
+        <Column
+          dataField="link"
+          caption="Sosyal Medya Linki"
+          headerCellRender={renderTitleHeader}
+          width={340}
+        />
+        <Column
+          dataField="name"
+          caption="Sosyal Medya Adı"
+          headerCellRender={renderTitleHeader}
+          width={300}
+        />
+        <Column
+          dataField="description"
+          caption="Açıklama"
+          headerCellRender={renderTitleHeader}
+          width={590}
+        />
       </DataGrid>
     </div>
   );

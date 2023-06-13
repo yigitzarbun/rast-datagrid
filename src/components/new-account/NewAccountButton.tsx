@@ -15,7 +15,7 @@ const NewAccountButton = () => {
             <div className={styles.horizontalLine}></div>
             <div className={styles.verticalLine}></div>
           </div>
-          <p className="text-sm ml-2">Yeni Hesap Ekle</p>
+          <p className="text-sm ml-2 font-medium">Yeni Hesap Ekle</p>
         </button>
       </Link>
     </div>
