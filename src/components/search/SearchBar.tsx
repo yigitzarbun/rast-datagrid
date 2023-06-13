@@ -1,11 +1,17 @@
 import { Colors } from "../../common/Colors";
-const SearchBar = () => {
+import { ChangeEvent } from "react";
+
+interface SearchBarProps {
+  handleSearch: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+const SearchBar = ({ handleSearch }: SearchBarProps) => {
   return (
     <div className="flex">
       <div className="flex">
         <input
           placeholder="Search objects..."
           className="w-[335px] h-[42px] px-[29px] py-[13px] rounded-l-[39px] pr-[40px]"
+          onChange={handleSearch}
         />
         <div
           style={{ background: Colors.primary }}

@@ -1,37 +1,61 @@
+import styles from "./Grid.module.css";
+import dataSource from "../../data/data.json";
+
+function Grid({ search }: { search: string }) {
+  let filteredData = dataSource.filter((account) => {
+    if (search === "") {
+      return account;
+    } else if (
+      account.link.toLowerCase().includes(search.toLowerCase()) ||
+      account.name.toLowerCase().includes(search.toLowerCase()) ||
+      account.description.toLowerCase().includes(search.toLowerCase())
+    ) {
+      return account;
+    }
+  });
+  return (
+    <div className="mt-[11px]">
+      {filteredData.length > 0 ? (
+        <table className={styles.grid}>
+          <thead>
+            <tr>
+              <th className={styles.headingLink}>Sosyal Medya Linki</th>
+              <th className={styles.headingName}>Sosyal Medya Adı</th>
+              <th className={styles.headingDescription}>Açıklama</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredData.map((account, index) => (
+              <tr
+                key={account.link}
+                className={index % 2 === 0 ? styles.whiteRow : styles.blueRow}
+              >
+                <td className={styles.tdLink}>{account.link}</td>
+                <td className={styles.tdName}>{account.name}</td>
+                <td className={styles.tdDescription}>{account.description}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p>Aradığınız kriterlere göre sonuç bulunamadı.</p>
+      )}
+    </div>
+  );
+}
+
+export default Grid;
+
+/*
+*** imports
+
 import DataGrid, { Column } from "devextreme-react/data-grid";
 import "devextreme/dist/css/dx.common.css";
 import "devextreme/dist/css/dx.light.css";
-import styles from "./Grid.module.css";
 
-function Grid() {
-  const dataSource = [
-    {
-      link: "instagram.com/mobilerast/",
-      name: "instagram",
-      description:
-        "We'll help you to finish your development project successfully.",
-    },
-    {
-      link: "tr.linkedin.com/company/rastmobile",
-      name: "linkedin",
-      description:
-        "Hire vetted developers from Rast Mobile to scale up your tech projects.",
-    },
-    {
-      link: "behance.net/rastmobile",
-      name: "behance",
-      description:
-        "Software Development Agency Rast Mobile Information Technology Ltd.",
-    },
-    {
-      link: "twitter.com/rastmobile",
-      name: "twitter",
-      description:
-        "Software Development Agency Rast Mobile Information Technology Ltd.",
-    },
-  ];
+*** column & cell style generators
 
-  const renderTitleHeader = (data: any) => {
+const renderTitleHeader = (data: any) => {
     return <p className={styles.gridHeader}>{data.column.caption}</p>;
   };
 
@@ -42,9 +66,10 @@ function Grid() {
       </div>
     );
   };
-  return (
-    <div className="mt-[11px]">
-      <DataGrid dataSource={dataSource} id="dataGrid" className={styles.grid}>
+
+  *** jsx
+ 
+<DataGrid dataSource={dataSource} id="dataGrid" className={styles.grid}>
         <Column
           dataField="link"
           caption="Sosyal Medya Linki"
@@ -67,8 +92,4 @@ function Grid() {
           cellRender={renderCell}
         />
       </DataGrid>
-    </div>
-  );
-}
-
-export default Grid;
+      */
