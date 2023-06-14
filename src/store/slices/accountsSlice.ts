@@ -2,6 +2,10 @@ import dataSource from "../../data/data.json";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../store";
 
+enum LsKeys {
+  accounts = "accounts",
+}
+
 interface Account {
   link: string;
   name: string;
@@ -12,8 +16,16 @@ interface AccountsState {
   accounts: Account[];
 }
 
+const loadAccountsFromLocalStorage = (): Account[] => {
+  const storedAccounts = localStorage.getItem(LsKeys.accounts);
+  if (storedAccounts) {
+    return JSON.parse(storedAccounts);
+  }
+  return [...dataSource];
+};
+
 const initialState: AccountsState = {
-  accounts: dataSource,
+  accounts: [...loadAccountsFromLocalStorage()],
 };
 
 export const accountsSlice = createSlice({
@@ -23,6 +35,7 @@ export const accountsSlice = createSlice({
     getAccounts: (state) => state,
     addAccount: (state, action: PayloadAction<Account>) => {
       state.accounts.push(action.payload);
+      localStorage.setItem(LsKeys.accounts, JSON.stringify(state.accounts));
     },
   },
 });

@@ -1,0 +1,59 @@
+.form {
+  width: 488px;
+  margin: 0 auto;
+  border: 1px solid #d9d9d9;
+  border-radius: 13px;
+  box-shadow: 1px -1px 15px 0px rgba(0, 0, 0, 0.25);
+}
+.closeRound {
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  margin-right: 17px;
+  margin-top: 25px;
+}
+.fieldContainer {
+  width: 87%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 23px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 19.5px;
+  margin-left: 5px;
+}
+
+.input {
+  border: 1px solid #d9d9d9;
+  border-radius: 38px;
+  width: 100%;
+  height: 40px;
+  margin-top: 5px;
+  padding: 10px;
+}
+
+.cancelButton {
+  width: 82.76px;
+  height: 37.02px;
+  background: #f5f7ff;
+  border-radius: 34px;
+  color: rgba(116, 75, 252, 1);
+  font-weight: 500;
+  font-size: 13.418px;
+  line-height: 20px;
+}
+
+.saveButton {
+  width: 82.76px;
+  height: 37.02px;
+  background: #744bfc;
+  border-radius: 34px;
+  font-weight: 500;
+  font-size: 13.418px;
+  line-height: 20px;
+  color: #ffffff;
+}

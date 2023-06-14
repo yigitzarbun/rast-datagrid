@@ -1,4 +1,4 @@
-import NewAccountForm from "../../components/new-account/NewAccountForm";
+import NewAccountForm from "../../components/new-account/form/NewAccountForm";
 
 const AddAccount = () => {
   return <NewAccountForm />;

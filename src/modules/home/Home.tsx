@@ -1,6 +1,6 @@
 import Grid from "../../components/grid/Grid";
 import SearchBar from "../../components/search/SearchBar";
-import NewAccountButton from "../../components/new-account/NewAccountButton";
+import NewAccountButton from "../../components/new-account/button/NewAccountButton";
 import { Colors } from "../../common/Colors";
 import { useState, ChangeEvent } from "react";
 

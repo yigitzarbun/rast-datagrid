@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 import paths from "../../routing/Paths";
 
 function Header() {
   return (
     <div className="flex justify-between mt-[43px] mb-[40px] mr-[111px] ml-[104px] mx-auto items-center">
-      <img src="/logo/logo.png" alt="logo" className="w-[124px] h-[36.7px]" />
+      <Link to={paths.HOME}>
+        <img src="/logo/logo.png" alt="logo" className="w-[124px] h-[36.7px]" />
+      </Link>
       <nav className="flex justify-between w-[53%]">
         <a
           href={paths.ABOUT}

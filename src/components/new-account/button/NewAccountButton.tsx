@@ -1,5 +1,5 @@
-import { Colors } from "../../common/Colors";
-import Paths from "../../routing/Paths";
+import { Colors } from "../../../common/Colors";
+import Paths from "../../../routing/Paths";
 import { Link } from "react-router-dom";
 import styles from "./NewAccountButton.module.css";
 
