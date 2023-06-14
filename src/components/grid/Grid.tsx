@@ -1,16 +1,30 @@
 import styles from "./Grid.module.css";
 import { getAccounts } from "../../store/slices/accountsSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-
 import { useEffect, useState } from "react";
-function Grid({ search }: { search: string }) {
+
+interface GridProps {
+  search: string;
+  display: number;
+  page: number;
+}
+
+function Grid({ search, display, page }: GridProps) {
   const dispatch = useAppDispatch();
-  const { accounts } = useAppSelector((state) => state.accounts);
+
+  let { accounts } = useAppSelector((state) => state.accounts);
+
+  let section: number = (page - 1) * display;
+
+  let slicedAccounts = accounts.slice(section, section + display);
+
   const [sort, setSort] = useState("");
+
   const handleSort = (v: string) => {
     setSort(v);
   };
-  let filteredData = accounts.filter((account) => {
+
+  let filteredData = slicedAccounts.filter((account) => {
     if (search === "") {
       return account;
     } else if (
@@ -21,6 +35,7 @@ function Grid({ search }: { search: string }) {
       return account;
     }
   });
+
   let sortedData = [...filteredData];
 
   if (sort === "link") {
@@ -30,9 +45,11 @@ function Grid({ search }: { search: string }) {
   } else if (sort === "description") {
     sortedData.sort((a, b) => a.description.localeCompare(b.description));
   }
+
   useEffect(() => {
     dispatch(getAccounts());
   }, []);
+
   return (
     <div className="mt-[11px]">
       {sortedData.length > 0 ? (

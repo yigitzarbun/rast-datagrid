@@ -28,11 +28,13 @@ const NewAccountForm = () => {
   };
   return (
     <form onSubmit={handleSubmit(handleAddAccount)} className={styles.form}>
-      <img
-        src="/new-account-form/close-round.png"
-        alt="close"
-        className={styles.closeRound}
-      />
+      <Link to={paths.HOME}>
+        <img
+          src="/new-account-form/close-round.png"
+          alt="close"
+          className={styles.closeRound}
+        />
+      </Link>
       <div className={styles.fieldContainer} style={{ marginTop: "8px" }}>
         <label className={styles.label}>Sosyal Medya Linki</label>
         <input
