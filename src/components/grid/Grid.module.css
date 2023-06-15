@@ -16,6 +16,7 @@
   width: 31%;
   cursor: pointer;
   background-color: white;
+  font-family: "Poppins", sans-serif;
 }
 
 .headingName {
@@ -28,6 +29,7 @@
   width: 27%;
   cursor: pointer;
   background-color: white;
+  font-family: "Poppins", sans-serif;
 }
 
 .headingDescription {
@@ -39,6 +41,7 @@
   width: 42%;
   cursor: pointer;
   background-color: white;
+  font-family: "Poppins", sans-serif;
 }
 
 .headingContent {

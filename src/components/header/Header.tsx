@@ -26,7 +26,7 @@ function Header() {
           />
         </Link>
 
-        <nav className="flex justify-between w-[53%]">
+        <nav className="flex justify-between w-[60%] ">
           <a
             href={paths.ABOUT}
             target="_blank"
@@ -39,7 +39,7 @@ function Header() {
             target="_blank"
             className="text-green text-sm hover:text-[#744BFC]"
           >
-            Juri - Yarışma Yazılımı
+            Jüri - Yarışma Yazılımı
           </a>
           <a
             href={paths.NINJA}

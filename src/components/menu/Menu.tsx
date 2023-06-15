@@ -34,7 +34,7 @@ const Menu = ({ modalIsOpen, closeModal }: MenuProps) => {
             target="_blank"
             className="text-green  hover:text-[#744BFC] mt-2"
           >
-            Juri - Yarışma Yazılımı
+            Jüri - Yarışma Yazılımı
           </a>
           <a
             href={paths.NINJA}

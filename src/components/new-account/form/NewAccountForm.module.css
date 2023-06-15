@@ -4,6 +4,7 @@
   border: 1px solid #d9d9d9;
   border-radius: 13px;
   box-shadow: 1px -1px 15px 0px rgba(0, 0, 0, 0.25);
+  font-family: "Poppins", sans-serif;
 }
 .closeRound {
   width: 24px;
@@ -42,6 +43,7 @@
   justify-content: space-between;
   width: 182.76px;
   margin: 43px 34.24px 34.98px auto;
+  font-family: "Poppins", sans-serif;
 }
 
 .cancelButton {

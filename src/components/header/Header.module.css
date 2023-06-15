@@ -10,6 +10,9 @@
   margin-right: 111px;
   margin-left: 104px;
   align-items: center;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  line-height: 21px;
 }
 
 @media (max-width: 1000px) {
