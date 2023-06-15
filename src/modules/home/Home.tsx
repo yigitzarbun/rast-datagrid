@@ -32,8 +32,8 @@ const Home = () => {
 
   const handlePage = (p: number): void => {
     setPage((prev) => prev + p);
-    if (page === 0 && p === -1) {
-      setPage(0);
+    if (page === 1 && p === -1) {
+      setPage(1);
     } else if (page === Math.ceil(accounts.length / display) && p === 1) {
       setPage(Math.ceil(accounts.length / display));
     }

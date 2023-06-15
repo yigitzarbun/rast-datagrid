@@ -14,21 +14,14 @@ function Grid({ search, display, page }: GridProps) {
 
   let { accounts } = useAppSelector((state) => state.accounts);
 
-  // section and slicedAccount variables compose the rows and data (accounts) that will be displayed.
-
-  let section: number = (page - 1) * display;
-
-  let slicedAccounts = accounts.slice(section, section + display);
-
   const [sort, setSort] = useState("");
 
   const handleSort = (v: string) => {
     setSort(v);
   };
 
-  // filteredData filters the data (accounts) based on the search bar input provided by the user
-
-  let filteredData = slicedAccounts.filter((account) => {
+  // filters data based on user input
+  let filteredData = accounts.filter((account) => {
     if (search === "") {
       return account;
     } else if (
@@ -40,7 +33,21 @@ function Grid({ search, display, page }: GridProps) {
     }
   });
 
-  let sortedData = [...filteredData];
+  // calculates the total number of rows in the filtered data and the total number of pages required to display the data
+  const totalRows = filteredData.length;
+  const totalPages = Math.ceil(totalRows / display);
+
+  // section and slicedAccounts variables determine the number of data rows that will be displated.
+  // e.g. if current page is #1 and 4 rows are being displayed, accounts[0, 3] shall be displayed.
+
+  let section = (page - 1) * display;
+  if (section >= totalRows) {
+    section = (totalPages - 1) * display;
+  }
+
+  let slicedAccounts = filteredData.slice(section, section + display);
+
+  let sortedData = [...slicedAccounts];
 
   if (sort === "link") {
     sortedData.sort((a, b) => a.link.localeCompare(b.link));
