@@ -6,7 +6,7 @@ interface MainLayoutProps {
 
 const MainLayout = ({ children }: MainLayoutProps) => {
   return (
-    <div>
+    <div className="max-w-[1000px]">
       <Header />
       {children}
     </div>

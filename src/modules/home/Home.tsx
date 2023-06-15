@@ -4,7 +4,7 @@ import NewAccountButton from "../../components/new-account/button/NewAccountButt
 import Pages from "../../components/pages/Pages";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { getAccounts } from "../../store/slices/accountsSlice";
-import { Colors } from "../../common/Colors";
+import styles from "./Home.module.css";
 import { useState, ChangeEvent, useEffect } from "react";
 
 const Home = () => {
@@ -49,20 +49,9 @@ const Home = () => {
     }
   }, [display]);
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        minHeight: "50vh",
-        background: Colors.gridBackground,
-        padding: "44px 73px 0 78px",
-        borderRadius: "6px",
-        maxWidth: "96%",
-        margin: "0 auto",
-      }}
-    >
+    <div className={styles.main}>
       <div style={{ flex: 1 }}>
-        <div className="flex justify-between">
+        <div className={styles.gridTop}>
           <SearchBar handleSearch={handleSearch} />
           <NewAccountButton />
         </div>

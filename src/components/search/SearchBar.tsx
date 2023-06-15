@@ -1,4 +1,5 @@
 import { Colors } from "../../common/Colors";
+import styles from "./SearchBar.module.css";
 import { ChangeEvent } from "react";
 
 interface SearchBarProps {
@@ -7,21 +8,23 @@ interface SearchBarProps {
 const SearchBar = ({ handleSearch }: SearchBarProps) => {
   return (
     <div className="flex">
-      <div className="flex">
-        <input
-          placeholder="Search objects..."
-          className="w-[335px] h-[42px] px-[29px] py-[13px] rounded-l-[39px] pr-[40px] outline-none"
-          onChange={handleSearch}
-        />
-        <div
-          style={{ background: Colors.primary }}
-          className="flex w-[45px] h-[42px] rounded-r-[39px] cursor-pointer"
-        >
-          <img
-            src="/search/search-icon.png"
-            alt="search-icon"
-            className="w-[15.2px] h-[15.2px] mx-auto my-auto "
+      <div className={styles.outerContainer}>
+        <div className="flex">
+          <input
+            placeholder="Search objects..."
+            className={styles.searchBar}
+            onChange={handleSearch}
           />
+          <div
+            style={{ background: Colors.primary }}
+            className="flex w-[45px] h-[42px] rounded-r-[39px] cursor-pointer"
+          >
+            <img
+              src="/search/search-icon.png"
+              alt="search-icon"
+              className="w-[15.2px] h-[15.2px] mx-auto my-auto "
+            />
+          </div>
         </div>
         <div
           style={{ background: Colors.secondary }}

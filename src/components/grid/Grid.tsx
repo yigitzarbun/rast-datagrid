@@ -51,7 +51,7 @@ function Grid({ search, display, page }: GridProps) {
   }, []);
 
   return (
-    <div className="mt-[11px]">
+    <div className="mt-[11px] overflow-x-auto">
       {sortedData.length > 0 ? (
         <table className={styles.grid}>
           <thead>

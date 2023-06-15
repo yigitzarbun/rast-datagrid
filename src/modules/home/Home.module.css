@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  background: linear-gradient(
+    180deg,
+    #eff2ff -30.56%,
+    rgba(232, 236, 255, 0) 135.85%
+  );
+  padding: 44px 73px 0 78px;
+  border-radius: 6px;
+  max-width: 96%;
+  margin: 0 auto;
+}
+
+.gridTop {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 840px) {
+  .main {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .gridTop {
+    flex-direction: column;
+    align-items: center;
+    row-gap: 15px;
+  }
+}
