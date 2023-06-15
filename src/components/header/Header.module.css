@@ -1,0 +1,28 @@
+.dropDownMenu {
+  display: none;
+}
+
+.standardHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 43px;
+  margin-bottom: 40px;
+  margin-right: 111px;
+  margin-left: 104px;
+  align-items: center;
+}
+
+@media (max-width: 1000px) {
+  .dropDownMenu {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 43px;
+    margin-bottom: 40px;
+    margin-right: 50px;
+    margin-left: 104px;
+    align-items: center;
+  }
+  .standardHeader {
+    display: none;
+  }
+}
