@@ -37,6 +37,13 @@
   padding: 10px;
 }
 
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 182.76px;
+  margin: 43px 34.24px 34.98px auto;
+}
+
 .cancelButton {
   width: 82.76px;
   height: 37.02px;
@@ -46,8 +53,13 @@
   font-weight: 500;
   font-size: 13.418px;
   line-height: 20px;
+  align-items: center;
+  display: flex;
 }
-
+.cancelButtonText {
+  align-items: center;
+  margin: 0 auto;
+}
 .saveButton {
   width: 82.76px;
   height: 37.02px;
@@ -57,4 +69,25 @@
   font-size: 13.418px;
   line-height: 20px;
   color: #ffffff;
+}
+
+@media (max-width: 490px) {
+  .form {
+    width: 100%;
+  }
+  .fieldContainer {
+    width: 95%;
+  }
+  .buttonsContainer {
+    width: 90%;
+    margin: 43px auto 34.98px auto;
+  }
+  .cancelButton {
+    width: 50%;
+    margin-right: 5px;
+  }
+  .saveButton {
+    width: 50%;
+    margin-left: 5px;
+  }
 }

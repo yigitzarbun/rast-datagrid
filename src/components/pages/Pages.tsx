@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Colors } from "../../common/Colors";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { getAccounts } from "../../store/slices/accountsSlice";
+import styles from "./Pages.module.css";
 
 interface PagesProps {
   display: number;
@@ -19,7 +20,7 @@ const Pages = ({ display, handleDisplay, page, handlePage }: PagesProps) => {
     dispatch(getAccounts());
   }, []);
   return (
-    <div className="flex justify-between mt-[20px] ml-[10px] mr-[10px] items-center">
+    <div className={styles.outerConatiner}>
       <div className="flex items-center">
         <p
           className="font-medium text-xs mr-[23px]"

@@ -68,9 +68,9 @@ const NewAccountForm = () => {
         />
         {errors.description && <span>{errors.description.message}</span>}
       </div>
-      <div className="flex justify-between w-[182.76px] ml-auto mr-[34.24px] mt-[43px] mb-[34.98px]">
-        <Link to={paths.HOME}>
-          <button type="submit" className={styles.cancelButton}>
+      <div className={styles.buttonsContainer}>
+        <Link to={paths.HOME} className={styles.cancelButton}>
+          <button type="submit" className={styles.cancelButtonText}>
             Vazgeç
           </button>
         </Link>

@@ -19,10 +19,17 @@
     margin-top: 43px;
     margin-bottom: 40px;
     margin-right: 50px;
-    margin-left: 104px;
+    margin-left: 50px;
     align-items: center;
   }
   .standardHeader {
     display: none;
+  }
+}
+
+@media (max-width: 300px) {
+  .dropDownMenu {
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }
