@@ -14,6 +14,8 @@ function Grid({ search, display, page }: GridProps) {
 
   let { accounts } = useAppSelector((state) => state.accounts);
 
+  // section and slicedAccount variables compose the rows and data (accounts) that will be displayed.
+
   let section: number = (page - 1) * display;
 
   let slicedAccounts = accounts.slice(section, section + display);
@@ -23,6 +25,8 @@ function Grid({ search, display, page }: GridProps) {
   const handleSort = (v: string) => {
     setSort(v);
   };
+
+  // filteredData filters the data (accounts) based on the search bar input provided by the user
 
   let filteredData = slicedAccounts.filter((account) => {
     if (search === "") {

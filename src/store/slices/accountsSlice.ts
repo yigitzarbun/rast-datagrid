@@ -16,6 +16,9 @@ interface AccountsState {
   accounts: Account[];
 }
 
+// loadAccountsFromLocalStorage loads existing accounts from the /src/data/data.json file (4 accounts) by default.
+// if the user adds any new accounts, then the loadAccountsFromLocalStorage concats existing accounts and newly added accounts.
+
 const loadAccountsFromLocalStorage = (): Account[] => {
   const storedAccounts = localStorage.getItem(LsKeys.accounts);
   if (storedAccounts) {
@@ -33,6 +36,10 @@ export const accountsSlice = createSlice({
   initialState,
   reducers: {
     getAccounts: (state) => state,
+
+    // if the user adds any new accounts, the addAccount reducer first saves them to the redux state and
+    // then adds them to the local storage
+
     addAccount: (state, action: PayloadAction<Account>) => {
       state.accounts.push(action.payload);
       localStorage.setItem(LsKeys.accounts, JSON.stringify(state.accounts));

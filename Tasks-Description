@@ -1,0 +1,18 @@
+RastMobile Datagrid uygulamasında, RastGrid çalışanlarının
+şirketin sosyal medya ve benzeri platformlardaki şirket hesaplarının
+takip edilmesine yönelik bir Panel geliştirilmiştir. Panel aracılığıyla
+kullanıcılar şirketin sosyal medya hesaplarını takip edebilir ve yeni hesapları
+Panel'e ekleyebilirler.
+
+Panel geliştirilirken ilk olarak Figma dosyasındaki tasarım bileşenlerinden yola
+çıkarak React componentleri oluşturulmuştur.
+
+Öncelikli olarak frontend bileşenleri ve dosya yapısı kurgulanıp,
+ardından state & veri yönetimi işlevleri Panel'e eklenmiştir.
+
+Ardından datagrid bölümünde gösterilen satır sayısı ve sayfa geçişleri kurgulanmıştır.
+
+Son olarak Panel farklı cihazlara ve ekran boyutlarına uyumlu olacak şekilde responsive
+hale getirilmiştir.
+
+Figma: https://www.figma.com/file/F9d8ov4lPf3cfzTr9PyK5v/RastMobile?type=design&node-id=0-1&t=JMVhcjw1nYfUNgrd-0
